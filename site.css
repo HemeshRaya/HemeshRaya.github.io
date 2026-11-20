@@ -344,3 +344,32 @@ table.rows tr { animation: pagein .35s ease both; }
 .lock-note { display: flex; gap: 12px; align-items: center; padding: 14px 16px; margin-top: 14px; border-radius: 14px; background: rgba(34, 197, 94, .1); border: 1px solid rgba(34, 197, 94, .3); font-size: 14.5px; }
 
 .btn.sm { padding: 10px 18px; font-size: 13.5px; min-height: 40px; }
+
+
+/* ======================= v4: small-screen and large-text fixes ======================= */
+main { overflow-wrap: anywhere; }
+.glass, .feat, .d, .d > div, .lane, .node, .story, .col, .explain .glass, .explain .glass > div, .stat, .step, .skill, .job, .tile, .nextcard, .panel-grid > *, .demo > *, .p-hero-grid > *, .hero-grid > * { min-width: 0; }
+.btn, .chip, .tech { max-width: 100%; }
+.btn { white-space: normal; text-align: left; overflow-wrap: anywhere; }
+.tabs button { max-width: 100%; white-space: normal; text-align: center; }
+.chips, .meta-row { min-width: 0; }
+.node { min-width: min(120px, 100%); }
+.nextcard h3 { font-size: clamp(22px, 7vw, 30px); }
+.p-hero h1 { font-size: clamp(30px, 12.5vw, 120px); }
+@media (max-width: 860px) {
+  .hero h1 { font-size: clamp(30px, 14vw, 108px); }
+  .hero h1 .l1, .hero h1 .l2 { white-space: normal; }
+  .sec-head h2 { font-size: clamp(30px, 9vw, 68px); }
+}
+
+/* videos: never taller than the screen */
+.player video { max-height: 78svh; object-fit: contain; background: #000; }
+.phone-demo .player { max-width: clamp(210px, 38svh, 340px); margin-inline: auto; width: 100%; }
+@media (max-width: 900px) { .phone-demo .player { max-width: clamp(210px, 38svh, 300px); } }
+@media (max-height: 520px) { .player video { max-height: 88svh; } .phone-demo .player { max-width: clamp(160px, 40svh, 240px); } }
+
+/* the tech strip keeps moving, slowly, even when the phone asks to reduce motion; touching it pauses it */
+@media (prefers-reduced-motion: reduce) {
+  .marquee .track { animation: slide 70s linear infinite !important; animation-duration: 70s !important; animation-iteration-count: infinite !important; }
+}
+.marquee:active .track, .marquee:focus-within .track { animation-play-state: paused; }

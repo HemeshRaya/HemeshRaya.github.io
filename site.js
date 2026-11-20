@@ -45,7 +45,7 @@
   const rot = $('[data-rotate]');
   if (rot) {
     const words = rot.dataset.rotate.split('|'); const b = $('b', rot);
-    if (reduce) { b.textContent = words[0]; } else {
+    {
       let w = 0, i = 0, del = false;
       const tick = () => {
         const word = words[w];
