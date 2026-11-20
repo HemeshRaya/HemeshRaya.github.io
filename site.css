@@ -373,3 +373,8 @@ main { overflow-wrap: anywhere; }
   .marquee .track { animation: slide 70s linear infinite !important; animation-duration: 70s !important; animation-iteration-count: infinite !important; }
 }
 .marquee:active .track, .marquee:focus-within .track { animation-play-state: paused; }
+
+
+/* v5: keep table headers whole on narrow phones */
+table.rows th { overflow-wrap: normal; word-break: normal; font-size: 11px; letter-spacing: .03em; }
+table.rows th, table.rows td { padding: 10px 8px; }
